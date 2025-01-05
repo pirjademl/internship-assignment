@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+  line-height: 1.5;
+  --primary-color: #ffffff;
+  --secondary-color: #e3d5ca;
+
+  --text-color:#000000;
+  --text-secondary:#fff;
+  --logo-color:#0066ff;
+  --primary-border: #333;
+ --font-primary: "Oswald", serif;
+  font-optical-sizing: auto;
+  --border-radius:50%;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width:100%;
+  min-height:100%;
+}
+
+
+body{
+    display:flex;
+    flex-direction:column;
+    background-color:var(--primary-color);
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    color:var(--text-color);
+    font-family:var(--font-primary);
+    font-weight:400;
+}
+*{
+    font-family:inherit;
+}
+.app-header{
+    background-color:var(--primary-color);
+    box-shadow:1px 0 0 2px gray;
+    position:sticky;
+    top:0;
+    z-index:9999;
+}
+.app-header .app-nav{
+    display:flex;
+    align-items:center;
+    height:80px;
+    justify-content:space-between;
+    padding-inline:1.2rem;
+}
+.app-nav .nav-logo{
+font-family: inherit;
+font-weight: 400;
+line-height: 15px;
+font-size: 20px;
+font-weight:800;
+line-height:30px;
+color: var(--logo-color);
+}
+{/*.app-container{
+    max-width:1000px;
+    margin-inline:auto;
+    margin-top:5rem;
+}
+*/}
+.rectangle-feature-container{
+    display:flex;
+    padding-inline:0.9rem;
+    gap:1.2rem;
+    justify-content:space-between;
+
+}
+.rotating-rectangle-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem; /* Adjusted for better spacing */
+    box-sizing: border-box;}
+.rotating-rectangle-wrapper .rectangle{
+    width:300px;
+    height:300px;
+    border:3px solid gray;
+    transition:transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.rectangle-input-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.rectangle-input-wrapper{
+    min-width:700px;
+    padding:1.2rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-content:center;
+    flex-wrap:wrap;
+    gap:1.2rem;
+
+}
+.rectangle-input-wrapper .rectangle-colors{
+    display:grid;
+    grid-template-columns:repeat(5,50px);
+    gap:0.2rem;
+    justify-content:center;
+
+}
+
+.rectangle-input-wrapper .rectangle-colors>button{
+    border-radius:10%;
+    height:50px;
+    appearance:none;
+    border:none;
+    box-shadow:0.4px 0.8px 0.12px black;
+    cursor:pointer;
+}
+.color-picker{
+    visibility:none;
+    opacity:0;
+
+}
+.picker-button{
+    appearance:none;
+    border:none;
+    outline:none;
+    height:35px;
+    width:100%;
+    background-color:var(--logo-color);
+    color:var(--text-secondary);
+    text-transform:uppercase;
+}
+
+.angle-slider-wrapper{
+--slider-width: 100%;
+  --slider-height: 12px;
+  --slider-bg: rgb(82, 82, 82);
+  --slider-border-radius: 999px;
+  --level-color: var(--logo-color);
+  --level-transition-duration: .1s;
+  --icon-margin: 15px;
+  --icon-color: var(--slider-bg);
+  --icon-size: 25px;
+  font-family:"Nunito", serif;
+
+}
+.angle-slider-wrapper{
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+
+}
+.angle-slider{
+    appearance: none;
+    width: var(--slider-width);
+    height: var(--slider-height);
+    background: var(--slider-bg);
+    overflow: hidden;
+    border-radius: var(--slider-border-radius);
+    -webkit-transition: height var(--level-transition-duration);
+    -o-transition: height var(--level-transition-duration);
+    transition: height var(--level-transition-duration);
+    cursor: inherit;
+}
+.angle-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  -webkit-box-shadow: -200px 0 0 200px var(--level-color);
+  box-shadow: -200px 0 0 200px var(--level-color);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 48em) {
+    .rotating-rectangle-wrapper {
+        width: fit-content;
+        padding: 1rem; /* Reduced padding for smaller screens */
+    }
+
+    .rectangle-feature-container {
+        flex-direction: column;
+        align-items: center;
+        padding-inline: 0.5rem;
+    }
+
+    .rectangle-input-wrapper {
+        min-width: 100%; /* Full width for small screens */
+        padding: 1rem;
+    }
+}
+
