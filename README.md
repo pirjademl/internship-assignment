@@ -25,8 +25,12 @@ Follow these instructions to get the project up and running on your local machin
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/pirjademl/internship-assignment.git
+cd internship-assignment
+```
+live demo 
+```bash
+https://internship-assignment-p9z2.vercel.app/
 ```
 
 Install dependencies:  
