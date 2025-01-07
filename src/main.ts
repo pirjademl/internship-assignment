@@ -1,6 +1,4 @@
 import "./style.css";
-// populate colors in rectangle colors div
-//
 const colors = [
     "#00296b",
     "#00171f",
@@ -36,7 +34,12 @@ const currentAngleSpanElement = document.querySelector(
     ".current-angle",
 ) as HTMLSpanElement;
 
-//if domcontent loaded then generate colors
+const circleDiv = document.querySelector(".circle") as HTMLDivElement;
+const rectangleOutsideCircle = document.querySelector(
+    ".rectangle-outside-circle",
+) as HTMLDivElement;
+
+//if dom content  loaded then generate colors
 document.addEventListener("DOMContentLoaded", () => {
     //take colors div  make a colored button and append it to the colors div
     const colorsDiv = document.querySelector(".rectangle-colors");
@@ -69,3 +72,37 @@ angleSlider?.addEventListener("input", (event: Event) => {
     rotatingRectangle.style.transform = `rotate(${target.value}deg)`;
     currentAngleSpanElement.innerHTML = `${target.value}&deg;`;
 });
+
+let isResizing = false;
+
+circleDiv.addEventListener("mousedown", (event) => {
+    isResizing = true;
+    document.addEventListener("mousemove", onResize);
+    document.addEventListener("mouseup", stopResize);
+});
+
+function onResize(event: MouseEvent) {
+    if (!isResizing) {
+        return;
+    }
+    const boundaryRect = circleDiv.parentElement?.getBoundingClientRect();
+    let newDiameter = 2 * (event.clientX - boundaryRect?.left!);
+
+    //take minimum from the  boundary height and circle  width and height and assign new
+    //diameter to circleDiv
+    newDiameter = Math.min(
+        newDiameter,
+        boundaryRect?.width!,
+        boundaryRect?.height!,
+    );
+    console.log(newDiameter);
+    // minus 10 for keeping it smaller for avoiding the absurd scrollbar
+    circleDiv.style.width = `${newDiameter - 10}px`;
+    circleDiv.style.height = `${newDiameter - 10}px`;
+}
+//cleanup
+function stopResize(event: MouseEvent) {
+    isResizing = false;
+    document.removeEventListener("mousemove", onResize);
+    document.removeEventListener("mouseup", stopResize);
+}
