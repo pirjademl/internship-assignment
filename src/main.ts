@@ -35,10 +35,6 @@ const currentAngleSpanElement = document.querySelector(
 ) as HTMLSpanElement;
 
 const circleDiv = document.querySelector(".circle") as HTMLDivElement;
-const rectangleOutsideCircle = document.querySelector(
-    ".rectangle-outside-circle",
-) as HTMLDivElement;
-
 //if dom content  loaded then generate colors
 document.addEventListener("DOMContentLoaded", () => {
     //take colors div  make a colored button and append it to the colors div
@@ -75,7 +71,7 @@ angleSlider?.addEventListener("input", (event: Event) => {
 
 let isResizing = false;
 
-circleDiv.addEventListener("mousedown", (event) => {
+circleDiv.addEventListener("mousedown", () => {
     isResizing = true;
     document.addEventListener("mousemove", onResize);
     document.addEventListener("mouseup", stopResize);
@@ -101,7 +97,7 @@ function onResize(event: MouseEvent) {
     circleDiv.style.height = `${newDiameter - 10}px`;
 }
 //cleanup
-function stopResize(event: MouseEvent) {
+function stopResize() {
     isResizing = false;
     document.removeEventListener("mousemove", onResize);
     document.removeEventListener("mouseup", stopResize);
