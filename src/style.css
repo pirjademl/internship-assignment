@@ -204,10 +204,9 @@ color: var(--logo-color);
     height:200px;
     border:3px solid gray;
     border-radius:50%;
+    transition:transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 
 }
-
-
 
 @media (max-width: 60em) {
     .app-container{
@@ -228,11 +227,7 @@ color: var(--logo-color);
         padding-inline: 0.5rem;
         width:100%;
     }
-    .rotating-rectangle-wrapper{
-        padding:2rem;
-    }
-
-    .rectangle-input-wrapper {
+        .rectangle-input-wrapper {
         min-width: 100%;
         padding: 1rem;
         margin-top:1.2rem;
